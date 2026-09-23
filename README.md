@@ -1,9 +1,9 @@
-
-## **Pregunta**
+## Tarea 2
+**Pregunta**
 ¿La brecha de ingreso entre personas con eduacion superior y sin educacion superior
 crece o se achica a medida que aumenta la experiencia potencial?
 
-## **Respuesta**
+**Respuesta**
 La brecha promedio es de 240.890 pesos a favor de quienes tienen educacion superior, 
 y no crece de forma constante con la experiencia, la diferencia es de 226.657 pesos
 en el tramo Junior, luego la diferencia baja a 196.953 pesos en el tramo Medio, y 
