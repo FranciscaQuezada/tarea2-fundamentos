@@ -45,3 +45,15 @@ base <- casen |>
 # no nulo, dos columnas nuevas "experiencia" y "nivel_educ", ordenadas de mayor a 
 # menor ingreso. Al filtrar los NA "base" quedo con 55 filas en vez de 60.
 
+# 3b. Clasifica con `case_when()`
+base <- base |>
+  mutate(
+    tramo_exp = case_when(
+      experiencia < 10                     ~ "Junior",
+      experiencia >= 10 & experiencia < 25 ~ "Medio",
+      TRUE                                 ~ "Senior"
+    )
+  )
+# Verificar que no quedo ningun NA:
+table(base$tramo_exp, useNA = "ifany")
+
