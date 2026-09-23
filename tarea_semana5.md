@@ -182,7 +182,7 @@ que obtuviste. Exigencias:
 3. **Avanza por commits** (no subas todo en uno): el historial es tu evidencia de trabajo.
 4. Pega el enlace del repositorio en Canvas.
 
----
+--- 
 
 ## Declaración de autoría y uso de IA
 
