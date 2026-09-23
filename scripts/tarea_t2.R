@@ -33,3 +33,15 @@ names(select(ingresos, where(is.numeric)))    # por el TIPO    -> 7 columnas
 # el de abajo solo preguntas si la columna es numerica, por lo que arrastra a 
 # los ingresos e incluye tambien educ, edad y horas sin avisar que es error.
 
+# 3. Usa los cinco verbos 
+base <- casen |> 
+  filter (!is.na(ingreso) & edad >= 18) |> 
+  select (region, sector, educ, edad, ingreso, genero) |> 
+  mutate(
+    experiencia = pmax(edad - educ - 6,0),
+    nivel_educ = if_else(educ >= 13, "Superior", "No Superior")) |> 
+  arrange(desc(ingreso))
+# Se construyo "base" que contiene los datos de personas mayores de edad con ingreso
+# no nulo, dos columnas nuevas "experiencia" y "nivel_educ", ordenadas de mayor a 
+# menor ingreso. Al filtrar los NA "base" quedo con 55 filas en vez de 60.
+
