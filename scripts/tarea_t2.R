@@ -91,3 +91,11 @@ base <- base |>
 # del promedio de su propio nivel educativo, lo cual es util para identificar
 # personas muy por debajo del promedio de su grupo.
 
+# 5. Trata los `NA` explícitamente
+mean(casen$ingreso)                  # NA -> hay valores faltantes sin tratar
+mean(casen$ingreso, na.rm = TRUE)    # Ignora esos casos al calcular
+# Se pierden 5 de 60 personas (8,3% aprox) en cualquier calculo con na.rm = TRUE.
+# Es aceptable para una exploracion descriptiva como esta, pero seria un problema
+# si esos faltantes no fueran aleatorios. Por ejemplo, si las personas de mayores
+# ingresos tienden a no reportarlo.
+
