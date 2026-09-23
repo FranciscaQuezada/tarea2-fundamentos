@@ -81,3 +81,13 @@ print(por_nivel_tramo)
 # van desde $518.059 (No Superior/Senior, 17 personas) como el ingreso mas bajo, 
 # hasta $791.857 (Superior/Junior, 7 personas)como el ingreso mas alto. 
 
+# (b) Una comparación con `group_by()` + `mutate()`
+base <- base |>
+  group_by(nivel_educ) |>
+  mutate(brecha_vs_grupo = ingreso - mean(ingreso, na.rm = TRUE)) |>
+  ungroup()
+# "summarise" entrega una tabla de grupos o promedio por nivel_educ.
+# "mutate" agrupado entrega una tabla de personas y cuanto se aleja cada una 
+# del promedio de su propio nivel educativo, lo cual es util para identificar
+# personas muy por debajo del promedio de su grupo.
+
