@@ -115,3 +115,21 @@ print(por_nivel_tramo)
 # ingreso_por_nivel reprodujo el mismo resultado que por_nivel (mismos $537.037 y
 # $777.926), confirmando que la cadena de pipe funciona igual que hacerlo por partes
 
+
+# 7. Interpreta
+# El ingreso promedio de las personas sin educacion superior es de $537.037 frente
+# a $777.926 de quienes si cuentan con eduacion superior (una diferencia de $240.000 aprox)
+# Al cruzar con la experiencia, la brecha no crece de forma constante, es una diferencia
+# de $226.657 en el tramo "Junior", luego la diferencia baja a $196.953 para el tramo
+# "Medio", y vuelve a subir a $259.710 en el tramo "Senior", donde alcanza su valor mas
+# alto. Esto sugiere que la educacion superior se asocia, no solo con un ingreso base
+# mas alto, sino con un mayor retorno a la experiencia en el tramo con años mas trabajados, 
+# aunque el patron no es una subida lineal en todos los tramos. 
+# Esta asociacion no debe leerse como causal, dado que no se controla por eduacion, 
+# horas trabajadas, ni region, y algunos tramos tienen muestras muy chicas (5 a 7 personas
+# en "Junior" y "Medio"), ademas que se pierde un 8% aprox. de los datos por NA en ingreso,
+# lo que hace esos promedios poco confiables para generalizar.
+
+# Conclusion: la eduacion superior se asocia con un mayor retorno a la experiencia, especialmente
+# en el tramo con mas años trabajados, sin poder afirmarse como causal, por las muestras
+# chicas y los datos faltantes (5 NA).
