@@ -99,3 +99,19 @@ mean(casen$ingreso, na.rm = TRUE)    # Ignora esos casos al calcular
 # si esos faltantes no fueran aleatorios. Por ejemplo, si las personas de mayores
 # ingresos tienden a no reportarlo.
 
+# 6. Encadena con el pipe
+ingreso_por_nivel <- casen |>
+  filter(!is.na(ingreso) & edad >= 18) |>
+  mutate(
+    experiencia = pmax(edad - educ - 6,0),
+    nivel_educ = if_else(educ >= 13, "Superior", "No Superior")) |>
+  group_by(nivel_educ) |>
+  summarise(ingreso_prom = mean(ingreso, na.rm = TRUE),
+  n=n())
+
+print(ingreso_por_nivel)
+print(por_nivel)
+print(por_nivel_tramo)
+# ingreso_por_nivel reprodujo el mismo resultado que por_nivel (mismos $537.037 y
+# $777.926), confirmando que la cadena de pipe funciona igual que hacerlo por partes
+
