@@ -57,3 +57,27 @@ base <- base |>
 # Verificar que no quedo ningun NA:
 table(base$tramo_exp, useNA = "ifany")
 
+# 4. Agrega con `group_by()`
+# (a) Dos agregaciones con `summarise()`
+# Un grupo:
+por_nivel <- base |>
+  group_by(nivel_educ) |>
+  summarise(ingreso_prom = mean(ingreso, na.rm = TRUE), 
+  n = n())
+
+print(por_nivel)
+# Un ingreso promedio de $537.037 para "No Superior" (28 personas) y $777.926
+# para "Superior" (27 personas)
+
+# Dos grupos cruzados:
+por_nivel_tramo <- base |>
+  group_by (nivel_educ, tramo_exp) |>
+  summarise(ingreso_prom = mean(ingreso, na.rm =TRUE), 
+  n = n()) |>
+  arrange(tramo_exp, nivel_educ)
+
+print(por_nivel_tramo)
+# 6 combinacions de nivel educacional por tramo de experiencia, con promedios que 
+# van desde $518.059 (No Superior/Senior, 17 personas) como el ingreso mas bajo, 
+# hasta $791.857 (Superior/Junior, 7 personas)como el ingreso mas alto. 
+
